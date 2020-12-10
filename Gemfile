@@ -1,3 +1,7 @@
 source('https://rubygems.org')
 
-gem('sinatra')
+gem 'activerecord'
+gem 'pry'
+gem 'rake'
+gem 'sinatra-activerecord'
+gem 'sqlite3'
