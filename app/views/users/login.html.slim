@@ -1,0 +1,12 @@
+h3 Please Log In Below:
+- unless locals.empty?
+  = message
+br/
+form action="/login" method="post" 
+  label for="username"  Username:
+  input.form-control name="username" placeholder="username" type="text" /
+  br/
+  label for="password"  Password:
+  input.form-control name="password" placeholder="password" type="password" /
+  br/
+  input.btn.btn-default type="submit" value="Log-In" /

@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   get '/tasks' do
     @tasks = Task.all
-    erb :'tasks/index'
+    slim :'tasks/index.html'
   end
 end
