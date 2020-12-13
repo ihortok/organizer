@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  AVATAR_SIZES = {
+    big: '250x250',
+    small: '45x45'
+  }.freeze
+
   get '/signup' do
     if logged_in?
       redirect '/tasks'
@@ -54,6 +59,22 @@ class UsersController < ApplicationController
               end
 
     slim :'/users/edit.html', locals: { message: message }
+  end
+
+  post '/users/avatar' do
+    user = User.find_by_id(session[:user_id])
+    if user && params[:avatar] && params[:avatar][:filename]
+      file = File.open(params[:avatar][:tempfile], 'r')
+      avatar_big_path = "./public/uploads/#{user.username}_avatar_#{AVATAR_SIZES[:big]}.jpg"
+      avatar_small_path = "./public/uploads/#{user.username}_avatar_#{AVATAR_SIZES[:small]}..jpg"
+
+      avatar = MiniMagick::Image.open(file)
+
+      avatar.resize(AVATAR_SIZES[:big]).write(avatar_big_path)
+      avatar.resize(AVATAR_SIZES[:small]).write(avatar_small_path)
+
+      slim :'/users/edit.html', locals: { message: 'Success' }
+    end
   end
 
   get '/logout' do
