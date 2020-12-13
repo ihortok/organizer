@@ -77,7 +77,7 @@ class UsersController < ApplicationController
 
   get '/logout' do
     session.clear
-    slim :'/index.html', layout: :'layout.html'
+    slim :'/users/login.html', layout: :'layout.html'
   end
 
   private

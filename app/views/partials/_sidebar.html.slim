@@ -2,6 +2,8 @@ nav
   ul
     - if logged_in?
       li
+        a href="/users/edit" Profile
+      li
         a href="/logout" Log out
     - else
       li
@@ -10,3 +12,5 @@ nav
         a href="/signup" Sign up
     li
       a href="/tasks" Tasks
+    li
+      a href="/tasks/new" Add Task

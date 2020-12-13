@@ -7,7 +7,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    slim :'index.html', layout: :'layout.html'
+    redirect '/tasks' if logged_in?
+
+    slim :'/users/login.html', layout: :'layout.html'
   end
 
   helpers do
