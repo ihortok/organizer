@@ -1,6 +1,13 @@
+@import '_variables';
+
 * {
   margin: 0;
   padding: 0
+}
+
+body {
+  background-color: $grey-light;
+  color: $black;
 }
 
 /* ------------ general ------------ */
@@ -9,12 +16,22 @@
   max-width: 992px;
   padding: 0 15px;
   margin: auto;
+  background-color: $white;
+  box-shadow: 0 0 3px 1px $grey;
+  border-left: 1px solid $grey;
+  border-right: 1px solid $grey;
 
   &::after {
     content: '';
     display: none;
     clear: both
   }
+}
+
+.sidebar,
+.content {
+  min-height: calc(100vh - 30px);
+  padding: 15px;
 }
 
 .sidebar {

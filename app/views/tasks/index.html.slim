@@ -4,5 +4,5 @@ ul
       = task.title
       = task.deadline
       form action="/tasks/destroy" method="post" 
-        input.form-control name="task_id" type="hidden" value="#{task.id}" /
-        input.btn.btn-default type="submit" value="Destroy" /
+        input name="task_id" type="hidden" value="#{task.id}"
+        button type="submit" Destroy
