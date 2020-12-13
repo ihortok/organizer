@@ -1,6 +1,8 @@
 - unless locals.empty?
   = message
 
+image alt='avatar' src="/uploads/#{File.basename(@user.avatar_path, '.*')}_#{User::AVATAR_SIZES[:big]}#{File.extname(@user.avatar_path)}"
+
 h2 Avatar
 form action="/users/avatar" enctype="multipart/form-data" method="post" 
   input name="avatar" type="file" /
