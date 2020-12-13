@@ -7,4 +7,8 @@ html
     link href="/css/main.min.css?ver=1.0.0" rel="stylesheet" /
 
   body
-    == yield
+    .wrapper
+      .sidebar
+        == partial :'_sidebar.html'
+      .content
+        == yield

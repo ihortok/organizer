@@ -18,5 +18,9 @@ class ApplicationController < Sinatra::Base
     def current_user
       @user = User.find_by(id: session[:user_id])
     end
+
+    def partial(name, path: '/partials', locals: {})
+      Slim::Template.new("#{settings.views}#{path}/#{name}.slim").render(self, locals)
+    end
   end
 end
