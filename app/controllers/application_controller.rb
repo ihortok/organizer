@@ -7,7 +7,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    slim :'index.html'
+    slim :'index.html', layout: :'layout.html'
   end
 
   helpers do
