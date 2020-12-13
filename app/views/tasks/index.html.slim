@@ -1,3 +1,7 @@
 ul
   - @tasks.each do |task|
-    li= task.title
+    li
+      = task.title
+      form action="/tasks/destroy" method="post" 
+        input.form-control name="task_id" type="hidden" value="#{task.id}" /
+        input.btn.btn-default type="submit" value="Destroy" /

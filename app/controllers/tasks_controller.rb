@@ -19,4 +19,11 @@ class TasksController < ApplicationController
       slim :'/tasks/new.html', locals: { message: 'Something went wrong. Please try again.' }
     end
   end
+
+  post '/tasks/destroy' do
+    @task = Task.find_by(id: params[:task_id])
+    @task.destroy
+
+    redirect '/tasks'
+  end
 end
