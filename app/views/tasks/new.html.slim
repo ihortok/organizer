@@ -1,0 +1,9 @@
+h3 Add New Task:
+- unless locals.empty?
+  = message
+br/
+form action="/tasks/create" method="post" 
+  label for="username"  Title:
+  input.form-control name="title" placeholder="title" type="text" /
+  br/
+  input.btn.btn-default type="submit" value="Create" /
