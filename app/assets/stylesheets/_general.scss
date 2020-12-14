@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0
+}
+
+body {
+  background-color: $grey-light;
+  color: $black;
+  font-size: 20px;
+}
+
+table {
+  width: 100%;
+  
+  td, th {
+    padding: 5px 10px;
+  }
+}
+
+.red {
+  color: $red;
+}
+
+.blue {
+  color: $blue;
+}
+
+.m-t {
+  margin-top: 5px;
+}
+
+.ta-center {
+  text-align: center;
+}
