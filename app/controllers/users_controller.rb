@@ -66,8 +66,8 @@ class UsersController < ApplicationController
 
       avatar = MiniMagick::Image.open(file)
 
-      avatar.resize(User::AVATAR_SIZES[:small]).write(avatar_small_path)
       avatar.resize(User::AVATAR_SIZES[:big]).write(avatar_big_path)
+      avatar.resize(User::AVATAR_SIZES[:small]).write(avatar_small_path)
 
       user.update(avatar_path: "#{user.username}_avatar#{File.extname(file)}")
 
