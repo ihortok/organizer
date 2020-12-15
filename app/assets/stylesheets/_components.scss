@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+  
+  td, th {
+    padding: 5px 10px;
+  }
+}
+
+button {
+  font-size: .8em;
+  padding: 2px 5px;
+  line-height: 1;
+
+  &.btn-red {
+    background-color: $red;
+  }
+}
+
+form {
+  input {
+    font-size: .8em;
+    padding: 2px 5px;
+  }
+}

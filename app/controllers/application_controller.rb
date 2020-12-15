@@ -12,6 +12,10 @@ class ApplicationController < Sinatra::Base
     slim :'/users/login.html', layout: :'layout.html'
   end
 
+  get '/about' do
+    slim :'/about.html', layout: :'layout.html'
+  end
+
   helpers do
     def logged_in?
       !!current_user
@@ -21,8 +25,8 @@ class ApplicationController < Sinatra::Base
       @user = User.find_by(id: session[:user_id])
     end
 
-    def partial(name, path: '/partials', locals: {})
-      Slim::Template.new("#{settings.views}#{path}/#{name}.slim").render(self, locals)
+    def partial(name, path: '/', locals: {})
+      Slim::Template.new("#{settings.views}/#{name}.slim").render(self, locals)
     end
   end
 end

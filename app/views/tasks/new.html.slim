@@ -3,10 +3,14 @@ h3 Add New Task:
   = message
 br/
 form action="/tasks/create" method="post" 
-  label for="username" Title:
-  input name="title" placeholder="title" type="text"
+  label for="username"
+    | Title:
+    br/
+    input name="title" placeholder="title" type="text"
   br/
-  label for="deadline" Deadline:
-  input name="deadline" placeholder="deadline" type="datetime-local"
+  label for="deadline"
+    | Deadline:
+    br/
+    input name="deadline" placeholder="deadline" type="datetime"
   br/
-  button type="submit" Create
+  button.m-t type="submit" Create

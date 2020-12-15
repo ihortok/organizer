@@ -1,16 +1,17 @@
-h2 Log In:
-- unless locals.empty?
-  = message
-br/
-form action="/login" method="post" 
+form action=locals[:action] method=locals[:method] 
   label for="username"
     | Username:
     br/
     input name="username" placeholder="username" type="text"
+  br/
+  label for="email"
+    | Email:
+    br/
+    input name="email" placeholder="email" type="email"
   br/
   label for="password"
     | Password:
     br/
     input name="password" placeholder="password" type="password"
   br/
-  button.m-t type="submit" Log In
+  button.m-t type="submit" Submit
