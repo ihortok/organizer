@@ -2,6 +2,10 @@ source('https://rubygems.org')
 
 gem 'activerecord', '~> 6.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-bundler', '~> 2.0', '>= 2.0.1'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 gem 'dotenv', '~> 2.7', '>= 2.7.6'
 gem 'mini_magick', '~> 4.11'
 gem 'rake', '~> 13.0', '>= 13.0.1'
