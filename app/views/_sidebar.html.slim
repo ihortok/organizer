@@ -1,0 +1,27 @@
+- if logged_in?
+  div.sidebar-avatar
+    img src="#{current_user.avatar(size: :big)}" alt="avatar"
+  h3.m-t Hello, #{current_user.username}!
+nav.sidebar-nav
+  - if logged_in?
+  ul
+    - if logged_in?
+      li
+        a href="/users/edit" Profile
+      li
+        a href="/tasks" Tasks
+      li
+        a href="/tasks/new" Add Task
+    li
+      a href="/about" About
+  br /
+  hr /
+  ul
+    - if logged_in?
+      li
+        a href="/logout" Log out
+    - else
+      li
+        a href="/login" Log in
+      li
+        a href="/signup" Sign up

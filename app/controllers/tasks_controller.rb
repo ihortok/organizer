@@ -1,13 +1,15 @@
 class TasksController < ApplicationController
   get '/tasks' do
+    redirect '/login' unless logged_in?
+
     @tasks = current_user.tasks
-    slim :'tasks/index.html'
+    slim :'tasks/index.html', layout: :'layout.html'
   end
 
   get '/tasks/new' do
     redirect '/login' unless logged_in?
 
-    slim :'/tasks/new.html'
+    slim :'/tasks/new.html', layout: :'layout.html'
   end
 
   post '/tasks/create' do
@@ -16,7 +18,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect '/tasks'
     else
-      slim :'/tasks/new.html', locals: { message: 'Something went wrong. Please try again.' }
+      slim :'/tasks/new.html', layout: :'layout.html', locals: { message: 'Something went wrong. Please try again.' }
     end
   end
 

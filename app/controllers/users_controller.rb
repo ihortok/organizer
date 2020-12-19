@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     if logged_in?
       redirect '/tasks'
     else
-      slim :'/users/signup.html'
+      slim :'/users/signup.html', layout: :'layout.html'
     end
   end
 
@@ -13,13 +13,13 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect '/tasks'
     else
-      slim :'/users/signup.html', locals: { message: 'Something went wrong. Please try again.' }
+      slim :'/users/signup.html', layout: :'layout.html', locals: { message: 'Something went wrong. Please try again.' }
     end
   end
 
   get '/login' do
     if !logged_in?
-      slim :'users/login.html'
+      slim :'users/login.html', layout: :'layout.html'
     else
       redirect '/tasks'
     end
@@ -31,14 +31,14 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/tasks'
     else
-      slim :'/users/login.html', locals: { message: 'Something went wrong. Please try again.' }
+      slim :'/users/login.html', layout: :'layout.html', locals: { message: 'Something went wrong. Please try again.' }
     end
   end
 
   get '/users/edit' do
     if logged_in?
       set_user
-      slim :'/users/edit.html'
+      slim :'/users/edit.html', layout: :'layout.html'
     else
       redirect '/login'
     end
@@ -54,15 +54,15 @@ class UsersController < ApplicationController
                 'Something went wrong. Please try again.'
               end
 
-    slim :'/users/edit.html', locals: { message: message }
+    slim :'/users/edit.html', layout: :'layout.html', locals: { message: message }
   end
 
   post '/users/avatar' do
     user = User.find_by_id(session[:user_id])
     if user && params[:avatar] && params[:avatar][:filename]
       file = File.open(params[:avatar][:tempfile], 'r')
-      avatar_big_path = "./public/uploads/#{user.username}_avatar_#{User::AVATAR_SIZES[:big]}#{File.extname(file)}"
       avatar_small_path = "./public/uploads/#{user.username}_avatar_#{User::AVATAR_SIZES[:small]}#{File.extname(file)}"
+      avatar_big_path = "./public/uploads/#{user.username}_avatar_#{User::AVATAR_SIZES[:big]}#{File.extname(file)}"
 
       avatar = MiniMagick::Image.open(file)
 
@@ -77,7 +77,7 @@ class UsersController < ApplicationController
 
   get '/logout' do
     session.clear
-    slim :'/index.html'
+    slim :'/users/login.html', layout: :'layout.html'
   end
 
   private

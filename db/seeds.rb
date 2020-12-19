@@ -1,8 +1,19 @@
-tasks = [
-  { title: 'Task #1' },
-  { title: 'Task #2' }
-]
+user = User.find_or_initialize_by(username: 'superuser')
 
-tasks.each do |t|
-  Task.create(t)
+unless user.id
+  user.email = 'user@mail.com'
+  user.password = 'strongPassword_123'
+
+  user.save!
+end
+
+unless user.tasks.any?
+  tasks = [
+    { title: Faker::Hipster.sentence, user: user },
+    { title: Faker::Hipster.sentence, user: user }
+  ]
+
+  tasks.each do |t|
+    Task.create(t)
+  end
 end
