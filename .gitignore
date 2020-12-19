@@ -4,5 +4,5 @@ db/*.sqlite3
 public/uploads/*
 !public/uploads/.gitkeep
 !public/uploads/user.png
-!public/uploads/user_45x45.png
-!public/uploads/user_250x250.png
+!public/uploads/user_50x50.png
+!public/uploads/user_150x150.png
