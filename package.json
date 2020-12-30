@@ -1,0 +1,30 @@
+{
+  "name": "organizer",
+  "version": "1.0.0",
+  "description": "simple organizer",
+  "main": "app/assets/javascripts/main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "dev": "webpack --watch --mode=development",
+    "prod": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihortok/organizer.git"
+  },
+  "author": "ihortok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ihortok/organizer/issues"
+  },
+  "homepage": "https://github.com/ihortok/organizer#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "path": "^0.12.7",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.0"
+  }
+}
