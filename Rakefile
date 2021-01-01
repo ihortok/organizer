@@ -7,5 +7,5 @@ task :c do
 end
 
 task :sass do
-  system 'sass app/assets/stylesheets/main.scss:public/css/main.min.css --style compressed'
+  system 'sass --watch app/assets/stylesheets/main.scss:public/css/main.min.css --style compressed'
 end
